@@ -1,0 +1,34 @@
+{% load filter_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <h2>Demo Quiz by Django</h2>
+    <h3>Each question has 1 marks. -0.2 for incorrect answer.</h3>
+</center>
+<form action="go" method="post">
+    {% csrf_token %}
+    {% for exam in exams %}
+    <hr>
+    <h4>{{exam.id}}) {{exam.question}}</h4><br>
+    <input type="radio" id="{{exam.id}}" name="{{exam.id}}" value="{{exam.option_1}}">
+    <label for="{{exam.id}}">{{exam.option_1}}</label><br>
+    <input type="radio" id="{{exam.id}}" name="{{exam.id}}" value="{{exam.option_2}}">
+    <label for="{{exam.id}}">{{exam.option_2}}</label><br>
+    <input type="radio" id="{{exam.id}}" name="{{exam.id}}" value="{{exam.option_3}}">
+    <label for="{{exam.id}}">{{exam.option_3}}</label><br>
+    <input type="radio" id="{{exam.id}}" name="{{exam.id}}" value="{{exam.option_4}}">
+    <label for="{{exam.id}}">{{exam.option_4}}</label><br><br>
+    {% endfor %}
+    <hr>
+    <center><input type="submit"></center>
+</form>
+{% for msg in messages %}
+<h4>{{msg}}</h4>
+{% endfor %}
+</body>
+</html>

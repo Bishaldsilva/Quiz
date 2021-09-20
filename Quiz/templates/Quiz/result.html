@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for ex in exams %}
+{% if ex.correct in list %}
+<h3>The answer is correct</h3>
+{% else %}
+<h3>The answer is wrong. Correct answer is {{ex.correct}} </h3>
+{% endif %}
+{% endfor %}
+<h3>your score is : {{score}}</h3>
+</body>
+</html>
